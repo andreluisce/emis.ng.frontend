@@ -1,55 +1,39 @@
 <nav class="navbar navbar-transparent navbar-fixed-top" role="navigation">
     <div class="container">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-facebook-square"></i> Share
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-twitter"></i> Tweet
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-envelope-o"></i> Email
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+        <a class="navbar-brand" href="#">
+            <h1>
+                <img src="./assets/images/logo.png" width="120" height="120" class="d-inline-block align-top" alt="Eu Me Importo Sim">
+            </h1>
+
+
+        </a>
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
     </div>
-    <!-- /.container -->
 </nav>
+
 <div class="main">
     <div class="cover black" data-color="black"></div>
 
     <!--   You can change the black color for the filter with those colors: blue, green, red, orange       -->
 
     <div class="container">
-        <h1 class="logo">
-
-        </h1>
-        <!--  H1 can have 2 designs: "logo" and "logo cursive"           -->
-
-        <div class="content">
-            <h4 class="motto"><span>Missões,</span> eu me importo sim!</h4>
-            <div class="subscribe">
-                <h5 class="info-text">
-                    Diretoria de Missões da Região Sudeste da Igreja de Deus no Brasil
-                </h5>
-                <div class="row">
-                    <div class="container">
-                        <router-outlet></router-outlet>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="container">
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>
-    <!--<div class="footer">
+    <div class="footer">
         <span>Diretoria de Missões da Região Sudeste da Igreja de Deus no Brasil</span>
-    </div>-->
+    </div>
 </div>
