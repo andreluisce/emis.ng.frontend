@@ -2,38 +2,40 @@
     <div class="container">
         <a class="navbar-brand" href="#">
             <h1>
-                <img src="./assets/images/logo.png" width="120" height="120" class="d-inline-block align-top" alt="Eu Me Importo Sim">
+                <img src="./assets/images/logo.png" width="120" height="120" alt="Eu Me Importo Sim">
             </h1>
-
-
         </a>
-        <ul class="navbar-nav navbar-right">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+        <ul class="nav navbar-nav navbar-right">
+            <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/']">Home</a></li>
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/cadastro']">Cadastro</a></li>
+            <li role="presentation" routerLinkActive="active"><a [routerLink]="['/info']">Info</a></li>
+            <!--<li class="nav-item">
+                <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" href="#">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+            <li class="nav-item ">
+                <a routerLink="cadastro " routerLinkActive="active " class="nav-link " href="# ">Cadastro</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+            <li class="nav-item ">
+                <a routerLink="/info " routerLinkActive="active " class="nav-link " href="# ">Info</a>
+            </li>-->
         </ul>
     </div>
 </nav>
 
-<div class="main">
-    <div class="cover black" data-color="black"></div>
+<div class="main ">
+</div>
+<div class="cover black " data-color="black "></div>
 
-    <!--   You can change the black color for the filter with those colors: blue, green, red, orange       -->
+<!--   You can change the black color for the filter with those colors: blue, green, red, orange       -->
 
-    <div class="container">
-        <div class="row">
-            <div class="container">
-                <router-outlet></router-outlet>
-            </div>
+<div class="container viewport ">
+    <div class="row ">
+        <div class="container ">
+            <router-outlet></router-outlet>
         </div>
     </div>
-    <div class="footer">
-        <span>Diretoria de Missões da Região Sudeste da Igreja de Deus no Brasil</span>
-    </div>
 </div>
+
+<footer class="footer ">
+    <span>Diretoria de Missões da Região Sudeste da Igreja de Deus no Brasil</span>
+</footer>
