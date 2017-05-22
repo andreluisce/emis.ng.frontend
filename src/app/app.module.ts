@@ -5,10 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmisFormCadastroComponent } from './emis-form-cadastro/emis-form-cadastro.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmisFormCadastroComponent
   ],
   imports: [
     BrowserModule,

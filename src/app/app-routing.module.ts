@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [
+import {EmisFormCadastroComponent} from "app/emis-form-cadastro/emis-form-cadastro.component";
+
+const routes : Routes = [
   {
-    path: '',
-    children: []
+    path: 'cadastro',
+    component: EmisFormCadastroComponent
   }
 ];
 

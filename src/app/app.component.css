@@ -1,0 +1,13 @@
+.main {
+    background-image: url('../assets/images/bg_3.jpg')
+}
+
+.logo {
+    width: 230px;
+    height: 230px;
+    background-size: 230px auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 3em auto auto;
+    background-image: url('../assets/images/logo.png')
+}
