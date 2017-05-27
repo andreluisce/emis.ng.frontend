@@ -2,12 +2,17 @@ nav {
     height: 165px;
 }
 
+ul.navbar-nav {
+    background: rgba(0, 0, 0, .3);
+    border-radius: 10px;
+}
+
 nav .container {
     height: 100%
 }
 
 .main {
-    background-image: url('../assets/images/bg_3.jpg')
+    background-image: url('../assets/images/bg_4.jpg')
 }
 
 .active a {

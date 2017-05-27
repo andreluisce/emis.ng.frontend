@@ -2,3 +2,19 @@
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 10px 100px 0px rgba(0, 0, 0, 0.5);
 }
+
+@media (min-width: 992px) {
+    select {
+        /*max-width: 265px;*/
+    }
+    .selectContainer {
+        padding-left: 2%;
+        max-width: 63.5%;
+    }
+    .nextSelectContainer {
+        width: 48.4%;
+    }
+    .nextSelectContainer label {
+        width: 31%;
+    }
+}
