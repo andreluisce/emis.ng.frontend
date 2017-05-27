@@ -24,7 +24,29 @@
                 </div>
             </div>
         </div>
+        <div class="row col-md-12">
+            <!-- Text input-->
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">RG</label>
+                <div class="col-md-8 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="rg" ngModel placeholder="RG" class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
 
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">CPF</label>
+                <div class="col-md-8 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="cpf" ngModel placeholder="CPF" [textMask]="{mask:maskCPF}" class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+
+        </div>
         <div class="row col-md-12">
             <div class="form-group col-md-6">
                 <label class="col-md-4 control-label">E-Mail</label>
@@ -41,7 +63,7 @@
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
+                        <input #phoneNumber name="phone" placeholder="(11)99999-9999" [textMask]="{mask:maskPhonefunction(phoneNumber.value)}" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -49,11 +71,11 @@
         <div class="row col-md-12">
 
             <div class="form-group col-md-6">
-                <label class="col-md-4 control-label">Endereço</label>
+                <label class="col-md-4 control-label">CEP</label>
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="address" placeholder="Address" class="form-control" type="text">
+                        <input #cep name="cep" placeholder="CEP" [textMask]="{mask:maskCEP}" (blur)="buscarCep(cep.value)" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -61,11 +83,13 @@
             <!-- Text input-->
 
             <div class="form-group col-md-6">
-                <label class="col-md-4 control-label">Cidade</label>
+                <label class="col-md-4 control-label">Endereço</label>
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="city" placeholder="city" class="form-control" type="text">
+                        <input name="endereco" placeholder="Endereço" class="form-control" type="text">
+                        <span class="input-group-addon">#</span>
+                        <input name="endereco_numero" placeholder="Número" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -77,59 +101,35 @@
                 <div class="col-md-8 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="state" class="form-control selectpicker">
-							<option value=" " >Please select your state</option>
-							<option>Alabama</option>
-							<option>Alaska</option>
-							<option >Arizona</option>
-							<option >Arkansas</option>
-							<option >California</option>
-							<option >Colorado</option>
-							<option >Connecticut</option>
-							<option >Delaware</option>
-							<option >District of Columbia</option>
-							<option> Florida</option>
-							<option >Georgia</option>
-							<option >Hawaii</option>
-							<option >daho</option>
-							<option >Illinois</option>
-							<option >Indiana</option>
-							<option >Iowa</option>
-							<option> Kansas</option>
-							<option >Kentucky</option>
-							<option >Louisiana</option>
-							<option>Maine</option>
-							<option >Maryland</option>
-							<option> Mass</option>
-							<option >Michigan</option>
-							<option >Minnesota</option>
-							<option>Mississippi</option>
-							<option>Missouri</option>
-							<option>Montana</option>
-							<option>Nebraska</option>
-							<option>Nevada</option>
-							<option>New Hampshire</option>
-							<option>New Jersey</option>
-							<option>New Mexico</option>
-							<option>New York</option>
-							<option>North Carolina</option>
-							<option>North Dakota</option>
-							<option>Ohio</option>
-							<option>Oklahoma</option>
-							<option>Oregon</option>
-							<option>Pennsylvania</option>
-							<option>Rhode Island</option>
-							<option>South Carolina</option>
-							<option>South Dakota</option>
-							<option>Tennessee</option>
-							<option>Texas</option>
-							<option> Uttah</option>
-							<option>Vermont</option>
-							<option>Virginia</option>
-							<option >Washington</option>
-							<option >West Virginia</option>
-							<option>Wisconsin</option>
-							<option >Wyoming</option>
+                        <select name="estados" ngModel class="form-control selectpicker">
+																													<option value="" >Selecione seu estado</option>
+																													<option value="AC">Acre</option>
+																														<option value="AL">Alagoas</option>
+																														<option value="AP">Amapá</option>
+																														<option value="AM">Amazonas</option>
+																														<option value="BA">Bahia</option>
+																														<option value="CE">Ceará</option>
+																														<option value="DF">Distrito Federal</option>
+																														<option value="ES">Espírito Santo</option>
+																														<option value="GO">Goiás</option>
+																														<option value="MA">Maranhão</option>
+																														<option value="MT">Mato Grosso</option>
+																														<option value="MS">Mato Grosso do Sul</option>
+																														<option value="MG">Minas Gerais</option>
+																														<option value="PA">Pará</option>
+																														<option value="PB">Paraíba</option>
+																														<option value="PR">Paraná</option>
+																														<option value="PE">Pernambuco</option>
+																														<option value="PI">Piauí</option>
+																														<option value="RJ">Rio de Janeiro</option>
+																														<option value="RN">Rio Grande do Norte</option>
+																														<option value="RS">Rio Grande do Sul</option>
+																														<option value="RO">Rondônia</option>
+																														<option value="RR">Roraima</option>
+																														<option value="SC">Santa Catarina</option>
+																														<option value="SP">São Paulo</option>
+																														<option value="SE">Sergipe</option>
+																														<option value="TO">Tocantins</option>
 							</select>
                     </div>
                 </div>
@@ -139,43 +139,17 @@
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="zip" placeholder="Zip Code" class="form-control" type="text">
+                        <input name="cep" ngModel placeholder="Cep" class="form-control" type="text">
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Text input-->
-        <div class="row col-md-12">
-            <!-- Text input-->
-            <div class="form-group col-md-6">
-                <label class="col-md-4 control-label">RG</label>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-                        <input name="website" placeholder="Website or domain name" class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label class="col-md-4 control-label">CPF</label>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-                        <input name="website" placeholder="Website or domain name" class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
         <!-- Button -->
 
         <div class="row col-md-12">
             <div class="col-md-offset-6">
 
-                <button type="submit" class="btn btn-warning">Send <span class="glyphicon glyphicon-send"></span></button>
+                <button type="submit" class="btn btn-warning" (click)="getCep()">Send <span class="glyphicon glyphicon-send"></span></button>
 
             </div>
         </div>

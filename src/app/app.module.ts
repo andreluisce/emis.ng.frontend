@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import {TextMaskModule} from 'angular2-text-mask'
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmisFormCadastroComponent } from './emis-form-cadastro/emis-form-cadastro.component';
@@ -20,7 +22,8 @@ import { EmisHomeComponent } from './emis-home/emis-home.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TextMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]
