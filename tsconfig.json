@@ -1,7 +1,8 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "noImplicitAny": false,
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
         "outDir": "./dist/out-tsc",
         "baseUrl": "src",
         "sourceMap": true,

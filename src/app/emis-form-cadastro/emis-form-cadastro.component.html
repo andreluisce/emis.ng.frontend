@@ -1,159 +1,154 @@
-<form class="well form-horizontal" action=" " method="post" id="contact_form">
+<form class="well form-horizontal" #form="ngForm" (ngSubmit)="onSubmit()" id="contact_form">
     <fieldset>
-
-        <!-- Form Name -->
         <legend>Faça se Cadastro</legend>
-
         <div class='row col-md-12'>
             <div class="form-group col-md-6">
                 <label class="col-md-4 control-label">Nome</label>
-                <div class="col-md-8 inputGroupContainer">
+                <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="first_name" placeholder="First Name" class="form-control" type="text">
+                        <input name="first_name" ngModel required placeholder="Primeiro Nome" class="form-control" type="text">
                     </div>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <label class="col-md-4 control-label">Sobrenome</label>
-                <div class="col-md-8 inputGroupContainer">
+                <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="last_name" placeholder="Last Name" class="form-control" type="text">
+                        <input name="last_name" ngModel required placeholder="Sobrenome" class="form-control" type="text">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row col-md-12">
-            <!-- Text input-->
             <div class="form-group col-md-6">
                 <label class="col-md-4 control-label">RG</label>
-                <div class="col-md-8 inputGroupContainer">
+                <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="rg" ngModel placeholder="RG" class="form-control" type="text">
+                        <input name="rg" ngModel required placeholder="RG" class="form-control" type="text">
                     </div>
                 </div>
             </div>
-
             <div class="form-group col-md-6">
                 <label class="col-md-4 control-label">CPF</label>
-                <div class="col-md-8 inputGroupContainer">
+                <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="cpf" ngModel placeholder="CPF" [textMask]="{mask:maskCPF}" class="form-control" type="text">
+                        <input name="cpf" ngModel required placeholder="CPF" [textMask]="{mask:maskCPF}" class="form-control" type="text">
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="row col-md-12">
             <div class="form-group col-md-6">
                 <label class="col-md-4 control-label">E-Mail</label>
-                <div class="col-md-8 inputGroupContainer">
+                <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
+                        <input name="email" ngModel required placeholder="E-Mail Address" class="form-control" type="text">
                     </div>
                 </div>
             </div>
-
             <div class="form-group col-md-6">
-                <label class="col-md-4 control-label">Telefone</label>
-                <div class="col-md-8 inputGroupContainer">
+                <label class="col-md-4 control-label">Telefones</label>
+                <div class="col-md-8">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input #phoneNumber name="phone" placeholder="(11)99999-9999" [textMask]="{mask:maskPhonefunction(phoneNumber.value)}" class="form-control" type="text">
+                        <span class="input-group-addon"><i class="fa fa-phone fa-lg"></i></span>
+                        <input name="foneRes" ngModel placeholder="(00)0000-0000" [textMask]="{mask:maskPhone}" class="form-control" type="text">
+                    </div>
+                    <div class="input-group">
+
+                        <span class="input-group-addon"><i class="fa fa-whatsapp fa-lg"></i></span>
+                        <input name="celular" ngModel placeholder="(99)99999-9999" [textMask]="{mask:maskMobile}" class="form-control" type="text">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row col-md-12">
-
             <div class="form-group col-md-6">
                 <label class="col-md-4 control-label">CEP</label>
-                <div class="col-md-8 inputGroupContainer">
+                <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input #cep name="cep" placeholder="CEP" [textMask]="{mask:maskCEP}" (blur)="buscarCep(cep.value)" class="form-control" type="text">
+                        <span *ngIf="loadingCEP" class="input-group-addon"><i class="fa fa-refresh fa-spin fa-lg fa-fw"></i></span>
+
+                        <input #cep name="cep" ngModel required placeholder="CEP" [textMask]="{mask:maskCEP}" (blur)="buscarCep(cep.value)" placeholder="00000-000" class="form-control" type="text">
                     </div>
                 </div>
             </div>
-
-            <!-- Text input-->
-
             <div class="form-group col-md-6">
                 <label class="col-md-4 control-label">Endereço</label>
-                <div class="col-md-8 inputGroupContainer">
+                <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="endereco" placeholder="Endereço" class="form-control" type="text">
-                        <span class="input-group-addon">#</span>
+                        <input name="endereco" [ngModel]="endereco" required placeholder="Endereço" class="form-control" type="text">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Número</span>
+                        <input name="endereco_numero" placeholder="Número" required class="form-control" type="text">
+                        <span class="input-group-addon">Compl.</span>
                         <input name="endereco_numero" placeholder="Número" class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row-col-md-12">
-            <div class="form-group col-md-6">
-                <label class="col-md-4 control-label">Estado</label>
-                <div class="col-md-8 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="estados" ngModel class="form-control selectpicker">
-																													<option value="" >Selecione seu estado</option>
-																													<option value="AC">Acre</option>
-																														<option value="AL">Alagoas</option>
-																														<option value="AP">Amapá</option>
-																														<option value="AM">Amazonas</option>
-																														<option value="BA">Bahia</option>
-																														<option value="CE">Ceará</option>
-																														<option value="DF">Distrito Federal</option>
-																														<option value="ES">Espírito Santo</option>
-																														<option value="GO">Goiás</option>
-																														<option value="MA">Maranhão</option>
-																														<option value="MT">Mato Grosso</option>
-																														<option value="MS">Mato Grosso do Sul</option>
-																														<option value="MG">Minas Gerais</option>
-																														<option value="PA">Pará</option>
-																														<option value="PB">Paraíba</option>
-																														<option value="PR">Paraná</option>
-																														<option value="PE">Pernambuco</option>
-																														<option value="PI">Piauí</option>
-																														<option value="RJ">Rio de Janeiro</option>
-																														<option value="RN">Rio Grande do Norte</option>
-																														<option value="RS">Rio Grande do Sul</option>
-																														<option value="RO">Rondônia</option>
-																														<option value="RR">Roraima</option>
-																														<option value="SC">Santa Catarina</option>
-																														<option value="SP">São Paulo</option>
-																														<option value="SE">Sergipe</option>
-																														<option value="TO">Tocantins</option>
-							</select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-6 nextSelectContainer">
-                <label class="col-md-4 control-label">CEP</label>
-                <div class="col-md-8 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="cep" ngModel placeholder="Cep" class="form-control" type="text">
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Button -->
 
         <div class="row col-md-12">
-            <div class="col-md-offset-6">
-
-                <button type="submit" class="btn btn-warning" (click)="getCep()">Send <span class="glyphicon glyphicon-send"></span></button>
-
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Cidade</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <input name="cidade" [ngModel]="cidade" placeholder="Cidade" required class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-md-4 control-label">Estado</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                        <select name="estados" [ngModel]="estado" required class="form-control">
+							<option value="" >Selecione seu estado</option>
+							<option value="AC">Acre</option>
+							<option value="AL">Alagoas</option>
+							<option value="AP">Amapá</option>
+							<option value="AM">Amazonas</option>
+							<option value="BA">Bahia</option>
+							<option value="CE">Ceará</option>
+							<option value="DF">Distrito Federal</option>
+							<option value="ES">Espírito Santo</option>
+							<option value="GO">Goiás</option>
+							<option value="MA">Maranhão</option>
+							<option value="MT">Mato Grosso</option>
+							<option value="MS">Mato Grosso do Sul</option>
+							<option value="MG">Minas Gerais</option>
+							<option value="PA">Pará</option>
+							<option value="PB">Paraíba</option>
+							<option value="PR">Paraná</option>
+							<option value="PE">Pernambuco</option>
+							<option value="PI">Piauí</option>
+							<option value="RJ">Rio de Janeiro</option>
+							<option value="RN">Rio Grande do Norte</option>
+							<option value="RS">Rio Grande do Sul</option>
+							<option value="RO">Rondônia</option>
+							<option value="RR">Roraima</option>
+							<option value="SC">Santa Catarina</option>
+							<option value="SP">São Paulo</option>
+							<option value="SE">Sergipe</option>
+							<option value="TO">Tocantins</option>
+						</select>
+                    </div>
+                </div>
             </div>
         </div>
-
-
+        <div class="row col-md-12">
+            <div class="col-md-offset-6">
+                <button type="submit" [disabled]="!form.valid" class="btn btn-warning">Enviar <span class="glyphicon glyphicon-send"></span></button>
+            </div>
+        </div>
     </fieldset>
 </form>
