@@ -25,7 +25,6 @@ export class CepService {
   }
 
   private mapResultCep(res : Response) : Cep {
-    debugger;
     let cep: any = res.json();
 
     return cep
