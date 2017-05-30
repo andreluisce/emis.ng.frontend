@@ -188,9 +188,7 @@ h3 .small {
 
 .btn {
     border-width: 2px;
-    background-color: rgba(0, 0, 0, .0);
     font-weight: 400;
-    opacity: 0.8;
     padding: 8px 16px;
 }
 
@@ -225,37 +223,36 @@ h3 .small {
 }
 
 .btn-default {
-    color: #777777;
+    color: #FFF;
     border-color: #999999
 }
 
 .btn-primary {
-    color: #3472F7;
+    color: #FFF;
     border-color: #3472F7;
 }
 
 .btn-info {
-    color: #2C93FF;
+    color: #FFF;
     border-color: #2C93FF;
 }
 
 .btn-success {
-    color: #05AE0E;
+    color: #FFF;
     border-color: #05AE0E;
 }
 
 .btn-warning {
-    color: #FF9500;
+    color: #FFF;
     border-color: #FF9500;
 }
 
 .btn-danger {
-    color: #FF3B30;
+    color: #FFF;
     border-color: #FF3B30;
 }
 
 .btn:hover {
-    background-color: rgba(0, 0, 0, .0);
     opacity: 1;
 }
 
@@ -264,9 +261,8 @@ h3 .small {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    color: #1D62F0;
+    color: #F2f2f2;
     border-color: #1D62F0;
-    /*background-color: rgba(0, 0, 0, .0);*/
 }
 
 .btn-info:hover,
@@ -274,9 +270,8 @@ h3 .small {
 .btn-info:active,
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
-    color: #1084FF;
+    color: #F2f2f2;
     border-color: #1084FF;
-    background-color: rgba(0, 0, 0, .0);
 }
 
 .btn-success:hover,
@@ -284,9 +279,8 @@ h3 .small {
 .btn-success:active,
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
-    color: #049F0C;
+    color: #F2f2f2;
     border-color: #049F0C;
-    background-color: rgba(0, 0, 0, .0);
 }
 
 .btn-warning:hover,
@@ -294,9 +288,8 @@ h3 .small {
 .btn-warning:active,
 .btn-warning.active,
 .open .dropdown-toggle.btn-warning {
-    color: #ED8D00;
+    color: #F2f2f2;
     border-color: #ED8D00;
-    background-color: rgba(0, 0, 0, .0);
 }
 
 .btn-danger:hover,
@@ -304,9 +297,8 @@ h3 .small {
 .btn-danger:active,
 .btn-danger.active,
 .open .dropdown-toggle.btn-danger {
-    color: #EE2D20;
+    color: #F2f2f2;
     border-color: #EE2D20;
-    background-color: rgba(0, 0, 0, .0);
 }
 
 .btn-default:hover,
@@ -314,9 +306,8 @@ h3 .small {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-    color: #666666;
+    color: #F2f2f2;
     border-color: #888888;
-    background-color: rgba(0, 0, 0, .0);
 }
 
 .btn:active,
@@ -651,7 +642,6 @@ fieldset[disabled] .btn-warning.active {
 
 .navbar-transparent {
     padding-top: 15px;
-    background-color: rgba(0, 0, 0, .0);
 }
 
 .navbar-transparent .navbar-brand,
