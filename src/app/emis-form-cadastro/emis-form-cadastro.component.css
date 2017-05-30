@@ -3,11 +3,18 @@
     box-shadow: 0px 10px 100px 0px rgba(0, 0, 0, 0.5);
 }
 
-input.ng-invalid.ng-dirty,
+.input-group input.ng-invalid.ng-dirty,
 select.ng-invalid.ng-dirty {
-    border: 1px solid rgb(232, 74, 84);
-    background: rgba(232, 74, 84, 0.3);
-    color: #F1f1f1
+    border: 1px solid rgb(255, 149, 0);
+    background: rgba(255, 149, 0, 0.2);
+    color: #313131
+}
+
+.help-block {
+    background: rgba(255, 149, 40, .5);
+    border-radius: 14px;
+    padding-left: 8px;
+    font-style: italic;
 }
 
 @media (min-width: 992px) {
